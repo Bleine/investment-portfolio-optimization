@@ -1,0 +1,3 @@
+18/02/2026
+Estou iniciando o projeto. criei as pastas.
+para iniciar, primeiro preciso abrir um arquivo py, pois é por lá que vou criar o database.
