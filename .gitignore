@@ -1,1 +1,12 @@
+# Ignorar arquivos de dados (geralmente são pesados ou sensíveis)
+data/
 *.db
+*.csv
+
+# Ignorar arquivos temporários do Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Ignorar configurações do editor
+.vscode/
