@@ -56,8 +56,7 @@ def run_etl(lista_ativos, periodo='5y'):
 # This block ensures the script only runs if executed directly, not when imported by another file.
 if __name__ == "__main__":
     # Choose the assets you want to explore and the historical timeframe.
-    meus_ativos = ['BTLG11.SA', 'KNCR11.SA', 'ITUB4.SA',
-                   'VALE3.SA', 'IVVB11.SA', 'LFTS11.SA']
+    meus_ativos = ['BTC-USD', 'BTLG11.SA', 'AAPL34.SA', 'PETR4.SA', 'LFTS11.SA', 'GOLD11.SA']
     periodo_escolhido = '5y'
 
     # Pass the variables into the function

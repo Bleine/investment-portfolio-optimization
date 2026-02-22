@@ -21,9 +21,9 @@ Phase 1: Infrastructure and Setup
 [x] Create requirements.txt file listing all necessary Python dependencies.
 
 Phase 2: Data Extraction and Transformation (Python ETL)
-[ ] Develop src/etl.py script to automate financial data download via yfinance.
-[ ] Filter and clean data for the 6 selected assets (handle missing values, standardize dates).
-[ ] Save backup CSV files in data/raw (raw data) and data/processed (clean data).
+[x] Develop src/etl.py script to automate financial data download via yfinance.
+[x] Filter and clean data for the 6 selected assets (handle missing values, standardize dates).
+[x] Save backup CSV files in data/raw (raw data) and data/processed (clean data).
 
 Phase 3: Data Modeling and Storage (SQL)
 [ ] Design relational database schema and save it to sql/schema.sql.
