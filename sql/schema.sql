@@ -15,5 +15,6 @@ CREATE TABLE fact_prices (
     id_assets INTEGER NOT NULL,
     date DATE NOT NULL,
     adj_close DECIMAL(10,2) NOT NULL, --DECIMAL(total de numeros, números depois da virgula)
+    daily_return DECIMAL(10, 4) NOT NULL,
     FOREIGN KEY (id_assets) REFERENCES dim_assets (id_assets) 
 );

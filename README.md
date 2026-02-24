@@ -26,9 +26,9 @@ Phase 2: Data Extraction and Transformation (Python ETL)
 [x] Save backup CSV files in data/raw (raw data) and data/processed (clean data).
 
 Phase 3: Data Modeling and Storage (SQL)
-[ ] Design relational database schema and save it to sql/schema.sql.
-[ ] Develop src/database.py script to initialize the local database (SQLite).
-[ ] Insert processed data from the Python ETL pipeline into SQL tables.
+[x] Design relational database schema and save it to sql/schema.sql.
+[x] Develop src/database.py script to initialize the local database (SQLite).
+[x] Insert processed data from the Python ETL pipeline into SQL tables.
 
 Phase 4: Exploratory and Quantitative Analysis (EDA in Notebook)
 [ ] Create 01_exploratory_analysis.ipynb notebook.
@@ -37,7 +37,7 @@ Phase 4: Exploratory and Quantitative Analysis (EDA in Notebook)
 [ ] Validate business logic and quantitative models before building the dashboard.
 
 Phase 5: Data Visualization (Power BI)
-[ ] Connect Power BI directly to the SQLite database.
+[x] Connect Power BI directly to the SQLite database.
 [ ] Create required DAX measures for financial tracking.
 [ ] Develop an interactive dashboard (Market Overview, Asset Correlation, and Risk/Return profiles).
 [ ] Save the final .pbix file in the dashboard/ directory.

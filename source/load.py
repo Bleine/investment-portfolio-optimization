@@ -12,12 +12,30 @@ def load_data_to_db():
     # upload the data as da DataFrame
     df = pd.read_csv('../data/processed/historico_processado.csv')
 
-    unique_tickers = df['Ticker'].unique()  # select only once each ticker
+    unique_tickers = df['Ticker'].unique()  # unique() to get one each time
+
+    dicionario_setores = {
+        'BTC-USD': 'Cripto',
+        'BTLG11.SA': 'FII Logística',
+        'AAPL34.SA': 'BDR / Tech',
+        'PETR4.SA': 'Ações / Energia',
+        'GOLD11.SA': 'Commodities (Ouro)',
+        'LFTS11.SA': 'Renda Fixa (Selic)',
+
+        # benchmarks
+        '^BVSP': 'Benchmark - Ibovespa',
+        '^GSPC': 'Benchmark - S&P 500',
+        'B5P211.SA': 'Benchmark - Inflação (IMA-B 5)'
+    }
 
     for ticker in unique_tickers:
+
+        setor_real = dicionario_setores.get(ticker, 'Outros')
+
         cursor.execute(
-            "INSERT OR IGNORE INTO dim_assets (ticker, sector) VALUES (?, ?)", (ticker, 'N/A'))
-        conn.commit()  # just save when all had run.
+            "INSERT OR IGNORE INTO dim_assets (ticker, sector) VALUES (?, ?)", (ticker, setor_real))
+
+    conn.commit()
 
     cursor.execute('SELECT id_assets, ticker FROM dim_assets')
     # row[1] is a text and row [0] is the number
@@ -25,10 +43,11 @@ def load_data_to_db():
     # .map uses the ticker column to create a new one with numbers('id_assets')
     df['id_assets'] = df['Ticker'].map(dim_assets_map)
 
-    df_fact = df[['id_assets', 'Date', 'Preco_Ajustado']].copy()
+    df_fact = df[['id_assets', 'Date',
+                  'Preco_Ajustado', 'Retorno_Diario']].copy()
     # change name of the columns
     df_fact.rename(
-        columns={'Date': 'date', 'Preco_Ajustado': 'adj_close'}, inplace=True)
+        columns={'Date': 'date', 'Preco_Ajustado': 'adj_close', 'Retorno_Diario': 'daily_return'}, inplace=True)
     # .to_sql get the values of Pandas and insert into tables
     df_fact.to_sql('fact_prices', conn, if_exists='append', index=False)
 

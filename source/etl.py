@@ -46,6 +46,14 @@ def run_etl(lista_ativos, periodo='5y'):
     # Step D: .round(2) standardizes the prices to 2 decimal places (standard financial format).
     df_clean['Preco_Ajustado'] = df_clean['Preco_Ajustado'].round(2)
 
+    #Calculate Daily Return (Upstream Processing for Power BI)
+    # 1. Sort by Ticker and Date to ensure correct chronological order
+    df_clean = df_clean.sort_values(by=['Ticker', 'Date'])
+    # 2. Calculate percentage change
+    df_clean['Retorno_Diario'] = df_clean.groupby('Ticker')['Preco_Ajustado'].pct_change()
+    # 3. Fill the first day's NaN with 0, and round to 4 decimal places (e.g., 0.0150 for 1.5%)
+    df_clean['Retorno_Diario'] = df_clean['Retorno_Diario'].fillna(0).round(4)
+
     # --- LOAD ---
     # index=False prevents Pandas from exporting an unnecessary sequential numeric column.
     df_clean.to_csv('../data/processed/historico_processado.csv', index=False)
@@ -56,7 +64,7 @@ def run_etl(lista_ativos, periodo='5y'):
 # This block ensures the script only runs if executed directly, not when imported by another file.
 if __name__ == "__main__":
     # Choose the assets you want to explore and the historical timeframe.
-    meus_ativos = ['BTC-USD', 'BTLG11.SA', 'AAPL34.SA', 'PETR4.SA', 'LFTS11.SA', 'GOLD11.SA']
+    meus_ativos = ['BTC-USD', 'BTLG11.SA', 'AAPL34.SA', 'PETR4.SA', 'LFTS11.SA', 'GOLD11.SA', '^BVSP', '^GSPC', 'B5P211.SA']
     periodo_escolhido = '5y'
 
     # Pass the variables into the function
