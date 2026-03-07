@@ -1,6 +1,0 @@
-18/02/2026
-Estou iniciando o projeto. criei as pastas.
-para iniciar, primeiro preciso abrir um arquivo py, pois é por lá que vou criar o database.
-
-21/02/2026
-fiz alguns testes, montei um  notebook e fui abrindo ideias. Agora defini exatamente o projeto. 
