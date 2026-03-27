@@ -1,0 +1,5 @@
+Documentação Yahoo Finance
+https://ranaroussi.github.io/yfinance/reference/index.html
+
+Vídeo sobre a coluna Retorno Diário (pct_change)
+https://www.youtube.com/watch?v=gnW5G35kKn4

@@ -3,8 +3,7 @@ import pandas as pd
 
 
 def extract():
-    ativos_escolhidos = ['AAPL34.SA', 'B5P211.SA', 'BTC-USD', 'BTLG11.SA', 'GOLD11.SA',
-                         'LFTS11.SA', 'PETR4.SA', '^BVSP', '^GSPC']
+    ativos_escolhidos = ['AAPL34.SA', '^GSPC', 'WEGE3.SA', 'BBAS3.SA']
     periodo = 'max'
 
     dados_brutos = yf.download(

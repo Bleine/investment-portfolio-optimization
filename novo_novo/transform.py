@@ -5,14 +5,13 @@ import numpy as np
 
 def transform():
     dados_brutos = pd.read_csv(
-        'dados_brutos.csv', sep=',', decimal='.', index_col=0)
-    dados_limpos = dados_brutos.dropna()
-    dados_limpos = dados_limpos.reset_index()
-    dados_limpos = dados_limpos.melt(
+        'dados_brutos.csv')
+    dados_limpos = dados_brutos.melt(
         id_vars=['Date'], var_name='Ticker', value_name='Preço Ajustado')
     dados_limpos['Retorno Diário'] = np.round(dados_limpos.groupby('Ticker')[
                                               'Preço Ajustado'].pct_change()*100, 2)
     dados_limpos = dados_limpos.dropna()
+    dados_limpos.reset_index(drop=True)
     dados_limpos.to_csv('dados_limpos.csv', index=False)
 
 
