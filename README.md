@@ -1,47 +1,25 @@
 # Financial Portfolio Optimization & Data Pipeline
 
-## 1. Project Objective
-The goal of this project is to build a professional-grade data pipeline and investment tool. It automates the extraction of financial data, stores it in a structured SQL database, and applies Modern Portfolio Theory (MPT) to recommend optimal asset allocation based on risk profiles.
+## Objective
 
-## 2. Tech Stack
-* **Language:** Python (Pandas, NumPy, Scipy)
-* **Database:** SQL (SQLite)
-* **API:** Yahoo Finance (yfinance)
-* **Visualization:** Plotly / Matplotlib / Power BI
-* **Environment:** VS Code / Anaconda
+Build a data pipeline and investment analysis tool that automates the extraction of financial data, stores it in a structured SQL database, and applies Modern Portfolio Theory (MPT) to recommend optimal asset allocation based on risk profiles.
 
-## 3. Data Model
+## Tech Stack
 
+- **Language:** Python (Pandas, NumPy, SciPy)
+- **Database:** SQL (SQLite)
+- **API:** Yahoo Finance (yfinance)
+- **Visualization:** Power BI, Plotly / Matplotlib
+- **Environment:** VS Code / Anaconda
 
-## 4. Project Roadmap
+## Architecture
 
-Phase 1: Infrastructure and Setup
-[x] Create directory structure (data, src, sql, notebooks, dashboard).
-[x] Create .gitignore file to protect local data and temporary files.
-[x] Create requirements.txt file listing all necessary Python dependencies.
+The pipeline follows a structured flow: raw financial data is extracted via API, cleaned and transformed in Python, stored in a relational SQL database, and then connected to Power BI for interactive visualization and risk/return analysis.
 
-Phase 2: Data Extraction and Transformation (Python ETL)
-[x] Develop src/etl.py script to automate financial data download via yfinance.
-[x] Filter and clean data for the 6 selected assets (handle missing values, standardize dates).
-[x] Save backup CSV files in data/raw (raw data) and data/processed (clean data).
+## Status
 
-Phase 3: Data Modeling and Storage (SQL)
-[x] Design relational database schema and save it to sql/schema.sql.
-[x] Develop src/database.py script to initialize the local database (SQLite).
-[x] Insert processed data from the Python ETL pipeline into SQL tables.
+Actively in development — this project is being built as a real tool for use in investment advisory work, not only as a portfolio demonstration.
 
-Phase 4: Exploratory and Quantitative Analysis (EDA in Notebook)
-[ ] Create 01_exploratory_analysis.ipynb notebook.
-[ ] Establish connection between the notebook and the SQL database.
-[ ] Calculate essential financial metrics (Daily Returns, Volatility, and Correlation Matrix).
-[ ] Validate business logic and quantitative models before building the dashboard.
+## Data Source
 
-Phase 5: Data Visualization (Power BI)
-[x] Connect Power BI directly to the SQLite database.
-[ ] Create required DAX measures for financial tracking.
-[ ] Develop an interactive dashboard (Market Overview, Asset Correlation, and Risk/Return profiles).
-[ ] Save the final .pbix file in the dashboard/ directory.
-
-Phase 6: Documentation and Delivery (GitHub)
-[ ] Write a comprehensive README.md (Project goals, architecture overview, and business insights).
-[ ] Commit and push the finalized project to the remote GitHub repository.
+Financial data sourced via [Yahoo Finance API](https://pypi.org/project/yfinance/) (yfinance).
